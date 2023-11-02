@@ -11,8 +11,8 @@ const Header = () => {
         </span>
         GoWatch
       </Logo>
-      <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
       <NavLinkStyled to="/"> Home </NavLinkStyled>
+      <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
       <NavLinkStyled to="/about"> About </NavLinkStyled>
     </HeaderNav>
   );

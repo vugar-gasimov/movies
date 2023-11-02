@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';
 import styled from 'styled-components';
 import { cutText } from '../Helpers/cutText';
+import Loader from '../Loader/Loader';
 const Home = () => {
   const [movies, setMovies] = useHttp(fetchMovies);
   const location = useLocation();
@@ -11,6 +12,7 @@ const Home = () => {
 
   return (
     <MainWrapper>
+      <Loader />
       <HomeTitle>Welcome</HomeTitle>
       <HomeTitle>Today's trendings</HomeTitle>
       <Container>
