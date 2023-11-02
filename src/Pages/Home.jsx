@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';
 import styled from 'styled-components';
-
+import { cutText } from '../Helpers/cutText';
 const Home = () => {
   const [movies, setMovies] = useHttp(fetchMovies);
   const location = useLocation();
@@ -28,8 +28,9 @@ const Home = () => {
                   }
                   alt={movie.original_title ?? movie.title ?? movie.name}
                 />
+
                 <ProductName>
-                  {movie.original_title ?? movie.title ?? movie.name}
+                  {cutText(movie.original_title ?? movie.title ?? movie.name)}
                 </ProductName>
               </Link>
             </CardWrapper>
