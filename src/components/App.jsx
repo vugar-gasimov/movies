@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import Home from '../Pages/Home';
 import About from '../Pages/About';
 import Movies from '../Pages/Movies';
+import MoviesDetails from '../Pages/MoviesDetails';
 import NotFound from '../Pages/NotFound';
 import Layout from './Layout';
 
@@ -14,10 +15,11 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="movies" element={<Movies />} />
-          {/* <Route path="movies/:id" element={<Movies />}></Route> */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="movies/:id" element={<MoviesDetails />}></Route>
         </Route>
+        <Route path="movies" element={<Movies />} />
+        <Route path="404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </StyledDiv>
   );

@@ -24,6 +24,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterNav = styled.nav`
+  grid-area: footer;
   display: flex;
   align-items: center;
   justify-content: space-between;

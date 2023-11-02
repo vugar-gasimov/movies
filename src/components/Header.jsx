@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Clapperboard } from 'lucide-react';
 const Header = () => {
@@ -39,7 +39,7 @@ const Logo = styled.p`
   margin: 0;
 `;
 
-const NavLinkStyled = styled(Link)`
+const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   margin-left: 20px;
   border: 2px solid #cdcdcd;

@@ -7,24 +7,22 @@ import styled from 'styled-components';
 const Layout = () => {
   return (
     <LayoutWrapper>
-      <HeaderSty>
-        <Header />
-      </HeaderSty>
-      <MainSty>
-        <Main>
-          <div>
-            <Outlet />
-          </div>
-        </Main>
-      </MainSty>
-      <FooterSty>
-        <Footer />
-      </FooterSty>
+      <Header />
+
+      <WrapperOutlet>
+        <Outlet />
+      </WrapperOutlet>
+
+      <Footer />
     </LayoutWrapper>
   );
 };
 
 export default Layout;
+
+const WrapperOutlet = styled.div`
+  padding: 20px;
+`;
 
 const LayoutWrapper = styled.div`
   width: 100%;
@@ -39,14 +37,14 @@ const LayoutWrapper = styled.div`
   gap: 8px;
 `;
 
-const HeaderSty = styled.div`
-  grid-area: header;
-`;
+// const HeaderSty = styled.div`
+//   grid-area: header;
+// `;
 
-const MainSty = styled.div`
-  grid-area: main;
-`;
+// const MainSty = styled.div`
+//   grid-area: main;
+// `;
 
-const FooterSty = styled.div`
-  grid-area: footer;
-`;
+// const FooterSty = styled.div`
+//   grid-area: footer;
+// `;
