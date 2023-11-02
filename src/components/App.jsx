@@ -14,10 +14,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
           <Route path="about" element={<About />} />
           <Route path="movies/:id" element={<MoviesDetails />}></Route>
         </Route>
-        <Route path="movies" element={<Movies />} />
+
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
@@ -27,8 +28,6 @@ export const App = () => {
 
 const StyledDiv = styled.div`
   width: 100%;
-  height: 100vh;
-
   display: grid;
   grid:
     'header' auto

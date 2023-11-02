@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
@@ -10,7 +10,9 @@ const Layout = () => {
       <Header />
 
       <WrapperOutlet>
-        <Outlet />
+        <Suspense fallback={<h1>loading....</h1>}>
+          <Outlet />
+        </Suspense>
       </WrapperOutlet>
 
       <Footer />
@@ -20,13 +22,13 @@ const Layout = () => {
 
 export default Layout;
 
-const WrapperOutlet = styled.div`
+const WrapperOutlet = styled.main`
   padding: 20px;
 `;
 
 const LayoutWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 
   display: grid;
   grid:
