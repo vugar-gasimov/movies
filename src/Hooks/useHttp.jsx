@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-export const useHttp = (fn, param) => {
+export const useHttp = (fn, params) => {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fn(param)
+    fn(params)
       .then(movies => setMovies(movies.results))
       .catch(error => setError(error.message));
-  }, [param, fn]);
+  }, [params, fn]);
   return [movies, setMovies, { error }];
 };
 //useEffect(() => {

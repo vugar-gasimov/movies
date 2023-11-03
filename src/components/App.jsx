@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Routes, NavLink, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from '../Pages/Home';
 import About from '../Pages/About';
 import Movies from '../Pages/Movies';
@@ -17,8 +17,8 @@ export const App = () => {
           <Route path="movies" element={<Movies />} />
           <Route path="about" element={<About />} />
           <Route path="movies/:id" element={<MoviesDetails />}>
-            <Route path='movies/:movieId/cast' element={}/>
-            <Route path='movies/:movieId/reviews' element{}/>
+            {/* <Route path='movies/:movieId/cast' element={}/>
+            <Route path='movies/:movieId/reviews' element{}/> */}
           </Route>
         </Route>
 
