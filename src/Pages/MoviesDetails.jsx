@@ -1,31 +1,36 @@
 import { fetchMovieById } from 'api';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { useHttp } from '../Hooks/useHttp';
+import Loader from 'Loader/Loader';
 const MoviesDetails = () => {
-  const { id } = useParams();
+  const { movieId } = useParams();
   //   const movie = fetchMovieById(id);
-  const [movie, setMovie] = useState(null);
-  const [error, setError] = useState('');
+  const [movie, setMovie] = useHttp(fetchMovieById, movieId);
+  // const [error, setError] = useState('');
   const location = useLocation();
   const goBackRef = useRef(location.state?.from || '/');
   const navigate = useNavigate();
-  useEffect(() => {
-    fetchMovieById(id)
-      .then(data => setMovie(data))
-      .catch(error => {
-        navigate('/404');
-        setError(error.message);
-      });
-  }, [id, navigate]);
-  console.log(id);
+  // useEffect(() => {
+  //   fetchMovieById(id)
+  //     .then(data => setMovie(data))
+  //     .catch(error => {
+  //       navigate('/404');
+  //       setError(error.message);
+  //     });
+  // }, [id, navigate]);
+  console.log(movieId);
 
   //   if (!movie) {
   //     return <div>Loading...</div>;
   //   }
   if (!movie || movie.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
   return (
     <Container>

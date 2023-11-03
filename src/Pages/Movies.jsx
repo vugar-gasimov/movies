@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchMovieByQuery } from 'api';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { cutText } from '../Helpers/cutText';
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
@@ -51,7 +51,7 @@ const Movies = () => {
                 alt={movie.original_title ?? movie.title ?? movie.name}
               />
               <ProductName>
-                {movie.original_title ?? movie.title ?? movie.name}
+                {cutText(movie.original_title ?? movie.title ?? movie.name)}
               </ProductName>
             </Link>
           </CardWrapper>
