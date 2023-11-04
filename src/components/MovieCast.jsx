@@ -5,12 +5,21 @@ import { fetchCastById } from '../Services/api';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { lessCutText } from 'Helpers/cutText';
+import Loader from 'Loader/Loader';
 const MovieCast = () => {
   const { id } = useParams();
-  const [cast, setCast] = useHttp(fetchCastById, id);
+  const [cast] = useHttp(fetchCastById, id);
+
+  if (!cast || cast.length === 0) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
   return (
     <Container>
-      <h3>Movie Cast</h3>
+      <Title>Movie Cast</Title>
       <CastList>
         {cast?.map(cast => (
           <CastMember key={cast.id}>
@@ -79,4 +88,10 @@ const CastName = styled.h3`
 
 const CastCharacter = styled.p`
   color: #666;
+`;
+
+const Title = styled.h3`
+  color: #fdd03b;
+  display: flex;
+  justify-content: center;
 `;

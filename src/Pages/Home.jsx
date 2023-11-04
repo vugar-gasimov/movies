@@ -1,18 +1,24 @@
 import { fetchMovies } from 'Services/api';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';
-import styled from 'styled-components';
+
 import { cutText } from '../Helpers/cutText';
 import Loader from '../Loader/Loader';
+import {
+  CardWrapper,
+  Container,
+  HomeTitle,
+  MainWrapper,
+  ProductName,
+} from './HomeStyled';
+
 const Home = () => {
-  const [movies, setMovies] = useHttp(fetchMovies);
+  const [movies] = useHttp(fetchMovies);
   const location = useLocation();
-  const [error, setError] = useState('');
 
   return (
     <MainWrapper>
-      <Loader />
       <HomeTitle>Welcome</HomeTitle>
       <HomeTitle>Today's trendings</HomeTitle>
       <Container>
@@ -38,49 +44,10 @@ const Home = () => {
             </CardWrapper>
           ))}
       </Container>
+      : (
+      <Loader />)
     </MainWrapper>
   );
 };
 
 export default Home;
-
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  gap: 16px;
-`;
-
-export const CardWrapper = styled.div`
-  border-radius: 20px;
-  overflow: hidden;
-
-  > a {
-    text-decoration: none;
-  }
-`;
-
-export const ProductName = styled.h3`
-  padding: 4px;
-  margin-top: 8px;
-  margin-bottom: 0;
-  color: black;
-`;
-
-const MainWrapper = styled.main`
-  grid-area: main;
-  display: grid;
-  align-items: center;
-
-  padding: 10px 20px;
-  color: #fff;
-
-  background-position: center;
-  background-size: cover;
-  font-size: 1rem;
-`;
-const HomeTitle = styled.h2`
-  padding: 4px;
-  margin-top: 8px;
-  margin-bottom: 0;
-  color: black;
-`;

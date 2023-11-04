@@ -1,14 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Home from '../Pages/Home';
+// import Home from '../Pages/Home';
 import About from '../Pages/About';
-import Movies from '../Pages/Movies';
-import MoviesDetails from '../Pages/MoviesDetails';
+// import Movies from '../Pages/Movies';
+// import MoviesDetails from '../Pages/MoviesDetails';
 import NotFound from '../Pages/NotFound';
 import Layout from './Layout';
-import MovieCast from './MovieCast';
-import MovieReviews from './MovieReviews';
+// import MovieCast from './MovieCast';
+// import MovieReviews from './MovieReviews';
+import { lazy } from 'react';
+const Home = lazy(() => import('../Pages/Home'));
+const Movies = lazy(() => import('../Pages/Movies'));
+const MoviesDetails = lazy(() => import('../Pages/MoviesDetails'));
+const MovieCast = lazy(() => import('./MovieCast'));
+const MovieReviews = lazy(() => import('./MovieReviews'));
 
 export const App = () => {
   return (
@@ -39,7 +45,7 @@ const StyledDiv = styled.div`
     'main' 1fr
     'footer' auto
     / 1fr;
-  gap: 8px;
+
   font-size: 20px;
   color: #010101;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);

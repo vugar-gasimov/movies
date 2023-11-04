@@ -1,5 +1,5 @@
 export const cutText = str => {
-  return `${str.slice(0, 15)}...`;
+  return `${str.slice(0, 11)}...`;
 };
 
 export const lessCutText = str => {

@@ -4,6 +4,8 @@ import { fetchMovieByQuery } from 'Services/api';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { cutText } from '../Helpers/cutText';
+import { Search } from 'lucide-react';
+
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
@@ -33,9 +35,17 @@ const Movies = () => {
 
   return (
     <MainWrapper>
-      <input type="search" value={query} onChange={handleOnChange} />
-      <button onClick={handleSearch}>Search</button>
       <HomeTitle>Filtered movie: {queryValue}</HomeTitle>
+      <SearchForm>
+        <SearchFormInput
+          type="search"
+          value={query}
+          onChange={handleOnChange}
+        />
+        <SearchFormButton onClick={handleSearch}>
+          <Search strokeWidth={2.75} size={24} color="black" />
+        </SearchFormButton>
+      </SearchForm>
       <Container>
         {getFilteredData()?.map(movie => (
           <CardWrapper key={movie.id}>
@@ -71,9 +81,11 @@ export const ProductName = styled.h3`
 `;
 
 export const Container = styled.div`
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const CardWrapper = styled.div`
@@ -86,21 +98,65 @@ const CardWrapper = styled.div`
 `;
 
 const MainWrapper = styled.main`
-  grid-area: main;
-
-  display: grid;
+  height: 100vh;
+  display: flex;
   align-items: center;
-
   padding: 10px 20px;
   color: #fff;
-
   background-position: center;
   background-size: cover;
   font-size: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
 `;
 const HomeTitle = styled.h2`
   padding: 4px;
   margin-top: 8px;
   margin-bottom: 0;
   color: black;
+`;
+
+// =================================
+
+export const SearchForm = styled.form`
+  display: flex;
+  align-items: center;
+  background: #10101058;
+  border-radius: 50px;
+  overflow: hidden;
+`;
+
+// Styled component for SearchForm button
+export const SearchFormButton = styled.button`
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  background-size: 40%;
+
+  opacity: 0.6;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+// Styled component for SearchForm input
+export const SearchFormInput = styled.input`
+  background: transparent;
+  margin-left: 10px;
+  display: inline-block;
+  max-width: 400px;
+
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 50px;
 `;

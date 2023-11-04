@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Clapperboard } from 'lucide-react';
+
 const Header = () => {
   return (
     <HeaderNav>

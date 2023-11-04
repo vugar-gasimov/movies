@@ -4,13 +4,14 @@ import Header from './Header';
 
 import Footer from './Footer';
 import styled from 'styled-components';
+import Loader from 'Loader/Loader';
 const Layout = () => {
   return (
     <LayoutWrapper>
       <Header />
 
       <WrapperOutlet>
-        <Suspense fallback={<h1>loading....</h1>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </WrapperOutlet>
@@ -36,7 +37,7 @@ const LayoutWrapper = styled.div`
     'main' 1fr
     'footer' auto
     / 1fr;
-  gap: 8px;
+
   flex-direction: column;
 `;
 
