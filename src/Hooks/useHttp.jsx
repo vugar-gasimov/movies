@@ -10,8 +10,3 @@ export const useHttp = (fn, params) => {
   }, [params, fn]);
   return [movies, setMovies, { error }];
 };
-//useEffect(() => {
-//   fetchMovies()
-//     .then(data => setMovies(data.results))
-//     .catch(error => setError(error.message));
-// }, []);

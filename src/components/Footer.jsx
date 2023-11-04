@@ -8,10 +8,11 @@ const Footer = () => {
   return (
     <FooterNav style={{ background: `url(${footerBG})` }}>
       <Logo>
+        Go
         <span role="img" aria-label="computer icon">
           <Clapperboard size={28} color="#fdd03b" />
         </span>
-        GoWatch
+        Watch
       </Logo>
       <NavLinkStyled to="/movies"> Movies</NavLinkStyled>
 

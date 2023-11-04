@@ -1,19 +1,18 @@
-import styled from 'styled-components';
 import {
   StyledInput,
   StyledLabel,
   StyledLoginForm,
   StyledTitle,
+  Flex,
 } from './RegisterStyled';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { UserContext } from '../Context/UserProvider';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const { login, isLoggedIn } = useContext(UserContext);
-  const location = useLocation();
-  console.log(location);
+
   const {
     register,
     handleSubmit,
@@ -22,12 +21,11 @@ export const RegisterForm = () => {
   } = useForm();
 
   const submit = data => {
-    console.log(data);
     login();
     reset();
   };
   if (isLoggedIn) {
-    return <Navigate to={location.state?.from || '/'} />;
+    return <Navigate to="/" />;
   }
   return (
     <Flex>
@@ -68,6 +66,7 @@ export const RegisterForm = () => {
             <option value="ukraine">Ukraine</option>
             <option value="usa">USA</option>
             <option value="canada">Canada</option>
+            <option value="canada">Azerbaijan</option>
           </select>
         </StyledLabel>
         <br />
@@ -83,9 +82,3 @@ export const RegisterForm = () => {
     </Flex>
   );
 };
-export const Flex = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-height: 100vh;
-`;

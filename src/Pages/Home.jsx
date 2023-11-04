@@ -1,8 +1,8 @@
 import { fetchMovies } from 'Services/api';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';
-
+import { Clapperboard } from 'lucide-react';
 import { cutText } from '../Helpers/cutText';
 
 import {
@@ -12,15 +12,21 @@ import {
   MainWrapper,
   ProductName,
 } from './HomeStyled';
+import { UserContext } from 'Context/UserProvider';
 
 const Home = () => {
+  const { user } = useContext(UserContext);
   const [movies] = useHttp(fetchMovies);
   const location = useLocation();
 
   return (
     <MainWrapper>
-      <HomeTitle>Welcome</HomeTitle>
-      <HomeTitle>Today's trendings</HomeTitle>
+      <HomeTitle>
+        Welcome to Go
+        <Clapperboard size={28} color="black" />
+        Watch {user && user.name ? `, ${user.name}` : ''}
+      </HomeTitle>
+      <HomeTitle>Choose a movie from Today's trendings</HomeTitle>
       <Container>
         {movies &&
           movies?.map(movie => (

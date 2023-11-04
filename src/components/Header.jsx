@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Clapperboard } from 'lucide-react';
+import { UserContext } from 'Context/UserProvider';
 
 const Header = () => {
+  const { isLoggedIn, logout } = useContext(UserContext);
   return (
     <HeaderNav>
       <Logo>
+        Go
         <span role="img" aria-label="computer icon">
           <Clapperboard size={28} color="#fdd03b" />
         </span>
-        GoWatch
+        Watch
       </Logo>
       <NavLinkStyled to="/"> Home </NavLinkStyled>
       <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
       <NavLinkStyled to="/about"> About </NavLinkStyled>
-      <NavLinkStyled to="/register"> Sign up </NavLinkStyled>
+      {isLoggedIn ? null : (
+        <NavLinkStyled to="/register">Sign up</NavLinkStyled>
+      )}
+      {isLoggedIn ? <StyledBtn onClick={logout}>Exit</StyledBtn> : null}
     </HeaderNav>
   );
 };
@@ -60,6 +66,27 @@ const NavLinkStyled = styled(NavLink)`
     background-color: #fdd03b;
     border-color: #fdd348;
   }
+
+  &:hover:not(.active) {
+    color: #fff;
+    background-color: #fdd03b;
+    border-color: transparent;
+  }
+`;
+
+const StyledBtn = styled.button`
+  text-decoration: none;
+  margin-left: 20px;
+
+  padding: 0.4rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: inline-block;
+  height: 3rem;
+  color: #fdd03b;
+  background-color: transparent;
+  border: 1px solid transparent;
 
   &:hover:not(.active) {
     color: #fff;

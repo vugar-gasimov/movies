@@ -31,7 +31,6 @@ const MoviesDetails = () => {
         setError(error.message);
       });
   }, [id, navigate]);
-  console.log(movie);
 
   if (!movie || movie.length === 0) {
     return (

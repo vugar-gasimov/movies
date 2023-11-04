@@ -29,8 +29,6 @@ const WrapperOutlet = styled.main`
 
 const LayoutWrapper = styled.div`
   width: 100%;
-  /* height: 100vh; */
-
   display: flex;
   grid:
     'header' auto
@@ -40,15 +38,3 @@ const LayoutWrapper = styled.div`
 
   flex-direction: column;
 `;
-
-// const HeaderSty = styled.div`
-//   grid-area: header;
-// `;
-
-// const MainSty = styled.div`
-//   grid-area: main;
-// `;
-
-// const FooterSty = styled.div`
-//   grid-area: footer;
-// `;

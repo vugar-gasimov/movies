@@ -23,7 +23,8 @@ const Movies = () => {
     setQuery(e.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = e => {
+    e.preventDefault();
     setSearchParams(query ? { query } : {});
   };
 
