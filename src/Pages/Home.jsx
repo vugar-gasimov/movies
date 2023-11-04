@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';
 
 import { cutText } from '../Helpers/cutText';
-import Loader from '../Loader/Loader';
+
 import {
   CardWrapper,
   Container,
@@ -44,8 +44,6 @@ const Home = () => {
             </CardWrapper>
           ))}
       </Container>
-      : (
-      <Loader />)
     </MainWrapper>
   );
 };
