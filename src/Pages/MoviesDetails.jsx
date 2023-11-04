@@ -41,7 +41,6 @@ const MoviesDetails = () => {
   return (
     <Container $backdrop={movie.backdrop_path}>
       <LinkStyled to={goBackRef.current}>BACK</LinkStyled>
-      <br />
 
       <MovieImage>
         <img
@@ -72,7 +71,7 @@ const MoviesDetails = () => {
       </MovieImage>
 
       <MovieDetail>
-        <Text>Additional information</Text>
+        <Text>Additional information:</Text>
         <Links>
           <NavLinkStyled to="cast"> Cast </NavLinkStyled>
           <NavLinkStyled to="reviews"> Reviews </NavLinkStyled>
@@ -97,14 +96,21 @@ export const CardWrapper = styled.div`
   }
 `;
 export const MovieDetail = styled.div`
+  margin: 0 auto;
   background: #10101058;
+  width: fit-content;
   border-radius: 10px;
   padding: 10px;
   height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 const Container = styled.div`
+  display: flex;
   gap: 20px;
+  flex-direction: column;
 
   &::after {
     content: '';
@@ -129,6 +135,8 @@ const Container = styled.div`
 `;
 
 const MovieImage = styled.div`
+  display: flex;
+  justify-content: space-evenly;
   img {
     display: flex;
     width: 500px;
@@ -224,6 +232,7 @@ const Links = styled.div`
 `;
 
 const Text = styled.div`
+  color: #fdd03b;
   display: flex;
   justify-content: center;
 `;

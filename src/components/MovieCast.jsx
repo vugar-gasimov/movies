@@ -4,6 +4,7 @@ import { useHttp } from '../Hooks/useHttp';
 import { fetchCastById } from '../Services/api';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { lessCutText } from 'Helpers/cutText';
 const MovieCast = () => {
   const { id } = useParams();
   const [cast, setCast] = useHttp(fetchCastById, id);
@@ -14,8 +15,8 @@ const MovieCast = () => {
         {cast?.map(cast => (
           <CastMember key={cast.id}>
             <CastImage
-              width={100}
-              height={100}
+              width={250}
+              height={300}
               loading="lazy"
               src={
                 cast.profile_path
@@ -24,8 +25,8 @@ const MovieCast = () => {
               }
               alt={cast.name}
             />
-            <CastName>{cast.name}</CastName>
-            <CastCharacter>{cast.character}</CastCharacter>
+            <CastName>{lessCutText(cast.name)}</CastName>
+            <CastCharacter>{lessCutText(cast.character)}</CastCharacter>
           </CastMember>
         ))}
       </CastList>
@@ -35,7 +36,7 @@ const MovieCast = () => {
 export default MovieCast;
 const Container = styled.div`
   display: flex;
-  width: 100vh;
+  max-width: 1400px;
   overflow-x: auto;
   justify-content: center;
   align-items: center;
@@ -50,12 +51,14 @@ const CastList = styled.div`
   display: flex;
   gap: 20px;
   padding: 0;
-  height: 350px;
+
   overflow-x: auto;
   width: 100%;
 `;
 
 const CastMember = styled.div`
+  min-width: 320px;
+  height: fit-content;
   text-align: center;
   padding: 20px;
   border: 1px solid transparent;
