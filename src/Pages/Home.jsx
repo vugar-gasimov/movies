@@ -12,7 +12,6 @@ import {
   MainWrapper,
   ProductName,
 } from './HomeStyled';
-import Loader from 'Loader/Loader';
 
 const Home = () => {
   const [movies] = useHttp(fetchMovies);
