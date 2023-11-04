@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BgImg from '../images/notFound.jpg';
 
 const NotFound = () => {
+  const location = useLocation();
+  const goBackRef = useRef(location.state?.from || '/');
   return (
     <Wrapper>
       <Content>
         <h1>Oops! Something went wrong</h1>
         <h2>
-          You can go back <LinkStyled to="/"> Home </LinkStyled>
+          You can go <LinkStyled to="/"> Home </LinkStyled> or back{' '}
+          <LinkStyled to={goBackRef.current}> Back </LinkStyled>
         </h2>
       </Content>
     </Wrapper>
