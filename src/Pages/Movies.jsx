@@ -38,12 +38,11 @@ const Movies = () => {
     setSearchParams(query ? { query } : {});
   };
 
-  const getFilteredData = () => {
-    return movies?.filter(movie =>
-      movie.title.toLowerCase().includes(query.toLowerCase())
-    );
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
-
   return (
     <MainWrapper>
       <HomeTitle>Filtered movie: {queryValue}</HomeTitle>
@@ -51,6 +50,7 @@ const Movies = () => {
         <SearchFormInput
           type="search"
           value={query}
+          onKeyDown={handleKeyPress}
           onChange={handleOnChange}
         />
         <SearchFormButton onClick={handleSearch}>
@@ -58,7 +58,7 @@ const Movies = () => {
         </SearchFormButton>
       </SearchForm>
       <Container>
-        {getFilteredData()?.map(movie => (
+        {movies?.map(movie => (
           <CardWrapper key={movie.id}>
             <Link state={{ from: location }} to={`/movies/${movie.id}`}>
               <img
