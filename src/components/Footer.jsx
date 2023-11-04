@@ -36,6 +36,7 @@ const FooterNav = styled.nav`
   background-position: center;
   background-size: cover;
   font-size: 1rem;
+  width: -webkit-fill-available;
 `;
 
 const Logo = styled.p`

@@ -1,4 +1,4 @@
-import { fetchMovies } from 'api';
+import { fetchMovies } from 'Services/api';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useHttp } from '../Hooks/useHttp';

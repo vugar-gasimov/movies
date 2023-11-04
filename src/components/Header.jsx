@@ -31,6 +31,7 @@ const HeaderNav = styled.nav`
     rgba(0, 0, 0, 0.8) 100%
   );
   color: #fff;
+  width: -webkit-fill-available;
 `;
 
 const Logo = styled.p`

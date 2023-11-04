@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
-import Main from './Main';
+
 import Footer from './Footer';
 import styled from 'styled-components';
 const Layout = () => {
@@ -30,13 +30,14 @@ const LayoutWrapper = styled.div`
   width: 100%;
   /* height: 100vh; */
 
-  display: grid;
+  display: flex;
   grid:
     'header' auto
     'main' 1fr
     'footer' auto
     / 1fr;
   gap: 8px;
+  flex-direction: column;
 `;
 
 // const HeaderSty = styled.div`

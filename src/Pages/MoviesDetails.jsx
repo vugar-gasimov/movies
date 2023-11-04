@@ -1,4 +1,4 @@
-import { fetchMovieById } from 'api';
+import { fetchMovieById } from 'Services/api';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import {
   Link,
@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Loader from 'Loader/Loader';
+import propTypes from 'prop-types';
 const MoviesDetails = () => {
   //   const movie = fetchMovieById(id);
   const [movie, setMovie] = useState(null);
@@ -38,8 +39,9 @@ const MoviesDetails = () => {
     );
   }
   return (
-    <Container>
+    <Container $backdrop={movie.backdrop_path}>
       <LinkStyled to={goBackRef.current}>BACK</LinkStyled>
+      <br />
 
       <MovieImage>
         <img
@@ -52,28 +54,31 @@ const MoviesDetails = () => {
           }
           alt={movie.original_title ?? movie.title ?? movie.name}
         />
+        <MovieDetails>
+          <h2>
+            {movie.original_title ?? movie.title ?? movie.name}
+            <br />({movie?.release_date})
+          </h2>
+          <p>User score: {(movie.vote_average * 10).toFixed(2)}%</p>
+          <h3>Overview</h3>
+          <p>{movie.overview}</p>
+          <h4>Genres</h4>
+          <p>
+            {movie.genres.map(genre => (
+              <span key={genre.id}>{genre.name}</span>
+            ))}
+          </p>
+        </MovieDetails>
       </MovieImage>
-      <MovieDetails>
-        <h2>
-          {movie.original_title ?? movie.title ?? movie.name}
-          <br />({movie?.release_date})
-        </h2>
-        <p>User score: {(movie.vote_average * 10).toFixed(2)}%</p>
-        <h3>Overview</h3>
-        <p>{movie.overview}</p>
-        <h4>Genres</h4>
-        <p>
-          {movie.genres.map(genre => (
-            <span key={genre.id}>{genre.name}</span>
-          ))}
-        </p>
-      </MovieDetails>
 
       <MovieDetail>
-        <p>Additional information</p>
-        <NavLinkStyled to="cast"> Cast </NavLinkStyled>
-        <NavLinkStyled to="reviews"> Reviews </NavLinkStyled>
+        <Text>Additional information</Text>
+        <Links>
+          <NavLinkStyled to="cast"> Cast </NavLinkStyled>
+          <NavLinkStyled to="reviews"> Reviews </NavLinkStyled>
+        </Links>
       </MovieDetail>
+      <br />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
@@ -95,26 +100,50 @@ export const MovieDetail = styled.div`
   background: #10101058;
   border-radius: 10px;
   padding: 10px;
+  height: fit-content;
 `;
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 20px;
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100vh + 10px);
+    background-image: ${props =>
+      props.$backdrop
+        ? `url('https://image.tmdb.org/t/p/w500/${props.$backdrop}')`
+        : 'none'};
+    background-size: cover;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    z-index: -1;
+    opacity: 0.35;
+  }
 `;
 
 const MovieImage = styled.div`
   img {
+    display: flex;
     width: 500px;
     height: 650px;
+
     border-radius: 5px;
   }
 `;
 
 const MovieDetails = styled.div`
+  max-width: 500px;
   background: #10101058;
   border-radius: 10px;
   padding: 10px;
+  height: fit-content;
   h2 {
     margin-bottom: 5px;
     color: #fdd03b;
@@ -188,4 +217,13 @@ const NavLinkStyled = styled(NavLink)`
     font-weight: 500;
     border-color: transparent;
   }
+`;
+const Links = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Text = styled.div`
+  display: flex;
+  justify-content: center;
 `;

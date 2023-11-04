@@ -7,7 +7,7 @@ export const fetchMovies = async params => {
   const { data } = await axios.get('trending/all/day', {
     params: { ...params, api_key: api_key },
   });
-  return data;
+  return data.results;
 };
 
 export const fetchMovieById = async id => {
@@ -17,24 +17,18 @@ export const fetchMovieById = async id => {
   return data;
 };
 
-// export const fetchMovieDetailsById = async id => {
-//   const { data } = await axios.get(`movie/${id}`, {
-//     params: { api_key: api_key },
-//   });
-//   return data;
-// };
-// export const fetchMovieCreditsById = async id => {
-//   const { data } = await axios.get(`movie/${id}`, {
-//     params: { api_key: api_key },
-//   });
-//   return data;
-// };
-// export const fetchMovieReviewsById = async id => {
-//   const { data } = await axios.get(`movie/${id}`, {
-//     params: { api_key: api_key },
-//   });
-//   return data;
-// };
+export const fetchCastById = async id => {
+  const { data } = await axios.get(`movie/${id}/credits`, {
+    params: { api_key: api_key },
+  });
+  return data.cast;
+};
+export const fetchMovieReviewsById = async id => {
+  const { data } = await axios.get(`movie/${id}/reviews`, {
+    params: { api_key: api_key },
+  });
+  return data.results;
+};
 
 export const fetchMovieByQuery = async (query, params) => {
   const { data } = await axios.get(`search/movie`, {

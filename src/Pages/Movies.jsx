@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { fetchMovieByQuery } from 'api';
+import { fetchMovieByQuery } from 'Services/api';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { cutText } from '../Helpers/cutText';

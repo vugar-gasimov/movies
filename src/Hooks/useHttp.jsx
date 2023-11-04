@@ -5,7 +5,7 @@ export const useHttp = (fn, params) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     fn(params)
-      .then(movies => setMovies(movies.results))
+      .then(data => setMovies(data))
       .catch(error => setError(error.message));
   }, [params, fn]);
   return [movies, setMovies, { error }];

@@ -7,6 +7,8 @@ import Movies from '../Pages/Movies';
 import MoviesDetails from '../Pages/MoviesDetails';
 import NotFound from '../Pages/NotFound';
 import Layout from './Layout';
+import MovieCast from './MovieCast';
+import MovieReviews from './MovieReviews';
 
 export const App = () => {
   return (
@@ -17,8 +19,8 @@ export const App = () => {
           <Route path="movies" element={<Movies />} />
           <Route path="about" element={<About />} />
           <Route path="movies/:id" element={<MoviesDetails />}>
-            {/* <Route path='movies/:movieId/cast' element={}/>
-            <Route path='movies/:movieId/reviews' element{}/> */}
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
           </Route>
         </Route>
 
@@ -43,13 +45,13 @@ const StyledDiv = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background: linear-gradient(
     315deg,
-    rgb(255, 159, 14),
-    rgb(228, 64, 187),
-    rgb(101, 90, 220),
-    rgb(72, 140, 251),
-    rgb(72, 140, 251),
-    rgb(41, 219, 188),
-    rgb(221, 245, 5)
+    rgba(255, 159, 14, 0.5),
+    rgba(228, 64, 187, 0.5),
+    rgba(101, 90, 220, 0.5),
+    rgba(72, 140, 251, 0.5),
+    rgba(72, 140, 251, 0.5),
+    rgba(41, 219, 188, 0.5),
+    rgba(221, 245, 5, 0.5)
   );
 `;
 
