@@ -44,7 +44,6 @@ const Home = () => {
               </Link>
             </CardWrapper>
           ))}
-        {movies.length === 0 && <Loader />}
       </Container>
     </MainWrapper>
   );

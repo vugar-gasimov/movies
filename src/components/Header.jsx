@@ -15,6 +15,7 @@ const Header = () => {
       <NavLinkStyled to="/"> Home </NavLinkStyled>
       <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
       <NavLinkStyled to="/about"> About </NavLinkStyled>
+      <NavLinkStyled to="/register"> Sign up </NavLinkStyled>
     </HeaderNav>
   );
 };

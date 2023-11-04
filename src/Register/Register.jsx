@@ -7,7 +7,7 @@ import {
 } from './RegisterStyled';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
-import { UserContext } from '../../context/UserProvider';
+import { UserContext } from '../Context/UserProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export const RegisterForm = () => {

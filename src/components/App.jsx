@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Route, Routes, Navigate } from 'react-router-dom';
 // import Home from '../Pages/Home';
@@ -10,6 +10,9 @@ import Layout from './Layout';
 // import MovieCast from './MovieCast';
 // import MovieReviews from './MovieReviews';
 import { lazy } from 'react';
+import { UserContext } from 'Context/UserProvider';
+
+import Register from './Register';
 const Home = lazy(() => import('../Pages/Home'));
 const Movies = lazy(() => import('../Pages/Movies'));
 const MoviesDetails = lazy(() => import('../Pages/MoviesDetails'));
@@ -17,6 +20,7 @@ const MovieCast = lazy(() => import('./MovieCast'));
 const MovieReviews = lazy(() => import('./MovieReviews'));
 
 export const App = () => {
+  const { isLoggedIn } = useContext(UserContext);
   return (
     <StyledDiv>
       <Routes>
@@ -24,7 +28,11 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="about" element={<About />} />
-          <Route path="movies/:id" element={<MoviesDetails />}>
+          <Route path="register" element={<Register />} />
+          <Route
+            path="movies/:id"
+            element={isLoggedIn ? <MoviesDetails /> : <Register />}
+          >
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
