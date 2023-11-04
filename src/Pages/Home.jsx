@@ -12,6 +12,7 @@ import {
   MainWrapper,
   ProductName,
 } from './HomeStyled';
+import Loader from 'Loader/Loader';
 
 const Home = () => {
   const [movies] = useHttp(fetchMovies);
@@ -43,6 +44,7 @@ const Home = () => {
               </Link>
             </CardWrapper>
           ))}
+        {movies.length === 0 && <Loader />}
       </Container>
     </MainWrapper>
   );
