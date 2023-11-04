@@ -1,19 +1,24 @@
 import React from 'react';
 import { useHttp } from '../Hooks/useHttp';
-import { fetchMovieReviewsById } from '../Services/api';
+import { fetchReviewsById } from '../Services/api';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Loader from 'Loader/Loader';
 
 const MovieReviews = () => {
   const { id } = useParams();
-  const [reviews] = useHttp(fetchMovieReviewsById, id);
+  const [reviews] = useHttp(fetchReviewsById, id);
+
   if (!reviews || reviews.length === 0) {
     return (
       <div>
         <Loader />
       </div>
     );
+  }
+
+  if (!reviews?.results.length) {
+    return <Title>Unfortunately we couldn't find any reviews</Title>;
   }
   return (
     <ReviewsContainer>

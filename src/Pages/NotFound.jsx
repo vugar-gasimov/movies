@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import BgImg from '../images/notFound.jpg';
+import { ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,7 +13,9 @@ const NotFound = () => {
         <h1>Oops! Something went wrong</h1>
         <h2>
           You can go <LinkStyled to="/"> Home </LinkStyled> or back{' '}
-          <LinkStyled to={goBackRef.current}> Back </LinkStyled>
+          <LinkStyled to={goBackRef.current}>
+            <ArrowLeft size={28} strokeWidth={2.5} />{' '}
+          </LinkStyled>
         </h2>
       </Content>
     </Wrapper>

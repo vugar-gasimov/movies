@@ -13,6 +13,7 @@ import {
   NavLinkStyled,
   Text,
 } from './MovieDetailsStyled';
+import { ArrowLeft } from 'lucide-react';
 
 const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -41,7 +42,9 @@ const MoviesDetails = () => {
   }
   return (
     <Container $backdrop={movie.backdrop_path}>
-      <LinkStyled to={goBackRef.current}>BACK</LinkStyled>
+      <LinkStyled to={goBackRef.current}>
+        <ArrowLeft size={28} strokeWidth={2.5} />
+      </LinkStyled>
 
       <MovieImage>
         <img
