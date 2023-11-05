@@ -1,8 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const About = () => {
   return (
-    <main>
+    <Main>
       <h1>About Us</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus
@@ -17,8 +18,12 @@ const About = () => {
         dolorum illum voluptatum dolores! Quas perferendis quis alias excepturi
         eaque voluptatibus eveniet error, nulla rem iusto?
       </p>
-    </main>
+    </Main>
   );
 };
 
 export default About;
+
+const Main = styled.main`
+  min-height: 600px;
+`;

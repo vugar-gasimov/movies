@@ -25,7 +25,7 @@ export const CardWrapper = styled.div`
 `;
 
 export const MainWrapper = styled.main`
-  height: 100vh;
+  min-height: 600px;
   display: flex;
   align-items: center;
   padding: 10px 20px;

@@ -60,7 +60,8 @@ const App = () => {
 };
 export default App;
 const StyledDiv = styled.div`
-  width: 100%;
+  min-width: fit-content;
+
   display: grid;
   grid:
     'header' auto

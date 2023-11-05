@@ -25,7 +25,7 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovieByQuery(queryValue).then(res => {
-      setMovies(res.results);
+      setMovies(res);
     });
   }, [queryValue]);
 
@@ -40,20 +40,21 @@ const Movies = () => {
 
   const handleKeyPress = e => {
     if (e.key === 'Enter') {
-      handleSearch();
+      e.preventDefault();
+      handleSearch(e);
     }
   };
   return (
     <MainWrapper>
       <HomeTitle>Filtered movie: {queryValue}</HomeTitle>
-      <SearchForm>
+      <SearchForm onSubmit={handleSearch}>
         <SearchFormInput
           type="search"
           value={query}
           onKeyDown={handleKeyPress}
           onChange={handleOnChange}
         />
-        <SearchFormButton onClick={handleSearch}>
+        <SearchFormButton type="submit">
           <Search strokeWidth={2.75} size={24} color="black" />
         </SearchFormButton>
       </SearchForm>
