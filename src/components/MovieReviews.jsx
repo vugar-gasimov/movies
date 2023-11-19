@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHttp } from '../Hooks/useHttp';
 import { fetchReviewsById } from '../Services/api';
 import { useParams } from 'react-router-dom';
@@ -7,7 +7,9 @@ import Loader from 'Loader/Loader';
 
 const MovieReviews = () => {
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
   const [reviews] = useHttp(fetchReviewsById, id);
+  const [expanded, setExpanded] = useState([]);
 
   if (!reviews || reviews.length === 0) {
     return (

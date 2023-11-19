@@ -15,18 +15,24 @@ const Header = () => {
         </span>
         Watch
       </Logo>
-      <NavLinkStyled to="/"> Home </NavLinkStyled>
-      <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
-      <NavLinkStyled to="/about"> About </NavLinkStyled>
-      {isLoggedIn ? null : (
-        <NavLinkStyled to="/register">Sign up</NavLinkStyled>
-      )}
-      {isLoggedIn ? <StyledBtn onClick={logout}>Exit</StyledBtn> : null}
+      <LinksContainer>
+        <NavLinkStyled to="/"> Home </NavLinkStyled>
+        <NavLinkStyled to="/movies"> Movies </NavLinkStyled>
+        <NavLinkStyled to="/about"> About </NavLinkStyled>
+        {isLoggedIn ? null : (
+          <NavLinkStyled to="/register">Sign up</NavLinkStyled>
+        )}
+        {isLoggedIn ? <StyledBtn onClick={logout}>Exit</StyledBtn> : null}
+      </LinksContainer>
     </HeaderNav>
   );
 };
 
 export default Header;
+
+const LinksContainer = styled.div`
+  display: flex;
+`;
 
 const HeaderNav = styled.nav`
   display: flex;
@@ -60,6 +66,7 @@ const NavLinkStyled = styled(NavLink)`
   height: 3rem;
   color: #fdd03b;
   border: 1px solid transparent;
+  transition: all 0.3s ease;
 
   &.active {
     color: #212121;

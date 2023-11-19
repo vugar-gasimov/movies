@@ -33,7 +33,7 @@ export const RegisterForm = () => {
   return (
     <Flex>
       <StyledLoginForm onSubmit={handleSubmit(submit)}>
-        <StyledTitle>Register</StyledTitle>
+        <StyledTitle>Sign up</StyledTitle>
         <StyledLabel>
           Name:
           <StyledInput

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   gap: 16px;
@@ -13,9 +13,15 @@ export const Container = styled.div`
 export const CardWrapper = styled.div`
   border-radius: 20px;
   overflow: hidden;
+  transition: all 0.3s ease;
 
   > a {
     text-decoration: none;
+  }
+  &:hover {
+    transform: scale(1.07);
+    background-color: #0000004f;
+    box-shadow: 0 0 5px black;
   }
 `;
 

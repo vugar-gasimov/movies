@@ -16,45 +16,38 @@ const MovieCast = lazy(() => import('./MovieCast'));
 const MovieReviews = lazy(() => import('./MovieReviews'));
 
 const App = () => {
-  const { isLoggedIn } = useContext(UserContext);
+  // const {} = useContext(UserContext);
 
   return (
     <StyledDiv>
-      {isLoggedIn ? (
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={<Loader />}>
-                <Layout />
-              </Suspense>
-            }
-          >
-            <Route index element={<Home />} />
-            <Route path="movies" element={<Movies />} />
-            <Route path="about" element={<About />} />
-            <Route path="register" element={<Register />} />
-            <Route path="movies/:id" element={<MoviesDetails />}>
-              <Route path="cast" element={<MovieCast />} />
-              <Route
-                path="reviews"
-                element={
-                  <Suspense fallback={<Loader />}>
-                    <MovieReviews />
-                  </Suspense>
-                }
-              />
-            </Route>
-          </Route>
-
-          <Route path="404" element={<NotFound />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="*" element={<Navigate to="/register" />} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Layout />
+            </Suspense>
+          }
+        >
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="about" element={<About />} />
           <Route path="register" element={<Register />} />
-        </Routes>
-      )}
+          <Route path="movies/:id" element={<MoviesDetails />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route
+              path="reviews"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <MovieReviews />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+
+        <Route path="404" element={<NotFound />} />
+      </Routes>
     </StyledDiv>
   );
 };
