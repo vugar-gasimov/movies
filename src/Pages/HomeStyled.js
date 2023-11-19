@@ -45,8 +45,11 @@ export const MainWrapper = styled.main`
   font-size: 1rem;
 `;
 export const HomeTitle = styled.h2`
-  padding: 4px;
+  padding: 8px 16px;
+  background-color: #0000004d;
+  border-radius: 30px;
+
   margin-top: 8px;
   margin: 0 auto;
-  color: black;
+  color: #fdd03b;
 `;
