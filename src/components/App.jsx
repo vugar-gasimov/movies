@@ -1,4 +1,4 @@
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import About from '../Pages/About';
@@ -16,7 +16,16 @@ const MovieCast = lazy(() => import('./MovieCast'));
 const MovieReviews = lazy(() => import('./MovieReviews'));
 
 const App = () => {
-  // const {} = useContext(UserContext);
+  const { login } = useContext(UserContext);
+
+  useEffect(() => {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+
+      login(parsedData);
+    }
+  }, [login]);
 
   return (
     <StyledDiv>
