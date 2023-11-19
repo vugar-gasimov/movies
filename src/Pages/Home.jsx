@@ -27,6 +27,7 @@ const Home = () => {
         Watch {user && user.name ? `, ${user.name}` : ''}
       </HomeTitle>
       <HomeTitle>Choose a movie from Today's trendings</HomeTitle>
+
       <Container>
         {movies &&
           movies?.map(movie => (

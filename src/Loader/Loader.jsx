@@ -33,6 +33,8 @@ const Loader = () => {
 export default Loader;
 const Main = styled.main`
   display: flex;
-  justify-content: center;
+
   height: 700px;
+  align-items: center;
+  justify-content: space-around;
 `;
