@@ -1,6 +1,6 @@
 import React, { Suspense, useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import About from '../Pages/About';
 import NotFound from '../Pages/NotFound';
 import Layout from './Layout';
