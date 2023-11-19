@@ -4,6 +4,8 @@ import {
   StyledLoginForm,
   StyledTitle,
   Flex,
+  StyledButton,
+  ButtonsContainer,
 } from './RegisterStyled';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
@@ -21,6 +23,7 @@ export const RegisterForm = () => {
   } = useForm();
 
   const submit = data => {
+    localStorage.setItem('userData', JSON.stringify(data));
     login();
     reset();
   };
@@ -58,8 +61,6 @@ export const RegisterForm = () => {
           <StyledInput {...register('password', { required: true })} />
         </StyledLabel>
         <br />
-
-        <br />
         <StyledLabel>
           Country:
           <select {...register('country', { required: true })}>
@@ -69,15 +70,17 @@ export const RegisterForm = () => {
             <option value="canada">Azerbaijan</option>
           </select>
         </StyledLabel>
-        <br />
+
         <StyledLabel $row>
           <input type="checkbox" {...register('agree')} />
           <span>I agree with rules!</span>
         </StyledLabel>
-        <button>Register</button>
-        <button onClick={() => reset()} type="button">
-          Cancel
-        </button>
+        <ButtonsContainer>
+          <StyledButton>Register</StyledButton>
+          <StyledButton onClick={() => reset()} type="button">
+            Cancel
+          </StyledButton>
+        </ButtonsContainer>
       </StyledLoginForm>
     </Flex>
   );

@@ -34,4 +34,5 @@ export default Loader;
 const Main = styled.main`
   display: flex;
   justify-content: center;
+  height: 700px;
 `;
