@@ -1,11 +1,11 @@
-import React, { Suspense, useContext, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import About from '../Pages/About';
 import NotFound from '../Pages/NotFound';
 import Layout from './Layout';
 import { lazy } from 'react';
-import { UserContext } from 'Context/UserProvider';
+
 import Register from './Register';
 import Loader from 'Loader/Loader';
 
@@ -16,17 +16,6 @@ const MovieCast = lazy(() => import('./MovieCast'));
 const MovieReviews = lazy(() => import('./MovieReviews'));
 
 const App = () => {
-  const { login } = useContext(UserContext);
-
-  useEffect(() => {
-    const userData = localStorage.getItem('userData');
-    if (userData) {
-      const parsedData = JSON.parse(userData);
-
-      login(parsedData);
-    }
-  }, [login]);
-
   return (
     <StyledDiv>
       <Routes>
