@@ -1,113 +1,70 @@
-# React homework template
+# GoWatch - Your Cinematic Experience
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+## About Us
 
-## Создание репозитория по шаблону
+Welcome to GoWatch, where we are dedicated to providing the best cinematic
+experience to movie enthusiasts like you. Whether you're a casual moviegoer or a
+dedicated cinephile, our goal is to offer a seamless platform for discovering,
+exploring, and enjoying the latest movies.
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+## Our Mission
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+Our mission is straightforward - to connect movie enthusiasts with the world of
+cinema. We strive to create an immersive and user-friendly environment where you
+can easily find and enjoy the latest movies, explore detailed information about
+them, and connect with a community that shares your love for film.
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+## Explore Today's Trending Movies
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+### Home Section
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+At GoWatch, your movie journey begins with our Home section. Explore a curated
+list of today's trending movies, ranging from blockbuster hits to hidden gems.
+Our collection caters to diverse tastes, and the personalized touch ensures you
+always feel welcomed. Your name, if you're logged in, adds a personal touch to
+your movie discovery experience.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+## Dive Deeper into Movie Details
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+### Movies Section
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+In the Movies section, we provide a powerful search feature to find movies based
+on your preferences. Simply enter your query, and we'll fetch the most relevant
+results for you. Explore detailed information, watch trailers, and make informed
+decisions about your next movie night.
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+## Uncover the Magic of Movie Details
 
-## Подготовка к работе
+### Movie Details Section
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+For those seeking a deeper dive into the world of a specific movie, our Movie
+Details page is the place to be. From high-quality images to comprehensive
+details about the cast, reviews, and more, we've got you covered. Immerse
+yourself in the story, characters, and background of each film.
 
-## Деплой
+## Connect with the Cast
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+### Movie Cast Section
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+Ever wondered about the talented individuals who bring your favorite characters
+to life? Our Movie Cast section introduces you to the cast members, complete
+with images and character details. Get to know the faces behind the performances
+that make your movie experience unforgettable.
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+## Hear What Others Have to Say
 
-![GitHub Pages settings](./assets/repo-settings.png)
+### Movie Reviews Section
 
-### Статус деплоя
+Curious about what others think of a movie? Our Movie Reviews section provides
+insights from fellow movie enthusiasts. Read reviews, get recommendations, and
+share your thoughts with the community.
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+## Join GoWatch Today
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+Ready to embark on a cinematic journey like never before? Join GoWatch today!
+Whether you're a seasoned movie buff or just starting your film exploration, we
+have something for everyone. Sign up, customize your profile, and let the magic
+of movies unfold.
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+At GoWatch, we believe that every movie has a story to tell, and we're here to
+help you discover yours. Lights, camera, action – let the adventure begin!

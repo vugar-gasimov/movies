@@ -33,8 +33,8 @@ export const StyledLoginForm = styled.form`
   width: calc((10vh + 20vw) * 2.2);
   padding: 10px 15px;
   border-radius: 12px;
-  max-width: 400px;
-  max-height: 600px;
+  max-width: 500px;
+  min-height: 600px;
 `;
 export const StyledLabel = styled.label`
   display: flex;

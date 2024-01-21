@@ -67,7 +67,8 @@ const CastList = styled.div`
 
 const CastMember = styled.div`
   min-width: 320px;
-  height: fit-content;
+  max-height: 600px;
+  /* height: fit-content; */
   text-align: center;
   padding: 20px;
   border: 1px solid transparent;

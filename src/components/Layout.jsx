@@ -24,7 +24,9 @@ const Layout = () => {
 export default Layout;
 
 const WrapperOutlet = styled.main`
+  display: flex;
   padding: 20px;
+  justify-content: center;
 `;
 
 const LayoutWrapper = styled.div`
